@@ -1,0 +1,391 @@
+Full JSON output:
+
+
+=== LC _ N Mohammed.pdf (Letter of Credit) ===
+{
+  "document_file": "LC _ N Mohammed.pdf",
+  "document_type": "Letter of Credit",
+  "total_checks": 82,
+  "categories": {
+    "BASIC TRADE INFO": "7 checks",
+    "PRODUCT DETAILS": "10 checks",
+    "QUALITY SPECIFICATIONS": "9 checks",
+    "SHIPPING DETAILS": "9 checks",
+    "DOCUMENT REQUIREMENTS": "8 checks",
+    "REFERENCE NUMBERS": "4 checks",
+    "SPECIAL REQUIREMENTS": "8 checks",
+    "COMPLIANCE STATEMENTS": "7 checks",
+    "BANKING DETAILS": "3 checks",
+    "CROSS-DOCUMENT VALIDATION": "2 checks",
+    "VERSION COMPARISON": "6 checks",
+    "COUNTRY-SPECIFIC TEMPORAL": "3 checks",
+    "SUPPORTING DOC VERIFICATION": "2 checks",
+    "LC AMENDMENT": "4 checks"
+  }
+}
+
+--- Sample checks (first 2 per category) ---
+
+  [BASIC TRADE INFO]
+{
+    "check_number": "1",
+    "check_name": "LC Number",
+    "category": "BASIC TRADE INFO",
+    "description": "Unique identifier for the letter of credit",
+    "checked_against": "LC / DI / Contract",
+    "docs_checked": "All documents",
+    "rule": "Exact match",
+    "tolerance": "None",
+    "trade_type": "Both",
+    "phase": "Phase 1"
+}
+{
+    "check_number": "2",
+    "check_name": "LC Issue Date",
+    "category": "BASIC TRADE INFO",
+    "description": "Baseline for all date checks and LC validity",
+    "checked_against": "LC",
+    "docs_checked": "All documents",
+    "rule": "Valid date format; must be before expiry",
+    "tolerance": "None",
+    "trade_type": "LC",
+    "phase": "Phase 1"
+}
+
+  [PRODUCT DETAILS]
+{
+    "check_number": "6",
+    "check_name": "Product Description",
+    "category": "PRODUCT DETAILS",
+    "description": "Full product name and description as stated in LC",
+    "checked_against": "LC / DI",
+    "docs_checked": "Commercial Invoice / Bill of Lading",
+    "rule": "LC: exact; Cash: near-exact",
+    "tolerance": "None for LC; minor variations OK for Cash",
+    "trade_type": "Both",
+    "phase": "Phase 1"
+}
+{
+    "check_number": "6a",
+    "check_name": "Goods Description (Minor/Ancillary)",
+    "category": "PRODUCT DETAILS",
+    "description": "Additional product details beyond the main description (e.g. packaging, labeling, grade notes)",
+    "checked_against": "LC / DI",
+    "docs_checked": "Commercial Invoice",
+    "rule": "LC: exact match; Cash: near-exact (minor wording differences acceptable)",
+    "tolerance": "Minor wording differences acceptable for Cash",
+    "trade_type": "Both",
+    "phase": "Phase 1"
+}
+
+  [QUALITY SPECIFICATIONS]
+{
+    "check_number": "12",
+    "check_name": "Quality Parameters (All Specs)",
+    "category": "QUALITY SPECIFICATIONS",
+    "description": "Quality parameters - checks each specification (protein, moisture, test weight, vomitoxin, foreign material, broken kernels, damaged kernels) against minimum/maximum limits in the LC or contract. Handles both single values and ranges; flags when LC requires a specification but the certificate is silent",
+    "checked_against": "LC / DI / Contract",
+    "docs_checked": "Quality / Analysis Certificate",
+    "rule": "Value must be within minimum/maximum range",
+    "tolerance": "Per LC/contract specs",
+    "trade_type": "Both",
+    "phase": "Phase 1"
+}
+{
+    "check_number": "12a",
+    "check_name": "Moisture Content",
+    "category": "QUALITY SPECIFICATIONS",
+    "description": "Moisture percentage must be within max limit",
+    "checked_against": "LC / DI / Contract",
+    "docs_checked": "Quality / Analysis Certificate",
+    "rule": "Value must not exceed maximum",
+    "tolerance": "Per LC/contract specs",
+    "trade_type": "Both",
+    "phase": "Phase 1"
+}
+
+  [SHIPPING DETAILS]
+{
+    "check_number": "15",
+    "check_name": "Origin Port",
+    "category": "SHIPPING DETAILS",
+    "description": "Port of loading as specified in LC",
+    "checked_against": "LC / DI",
+    "docs_checked": "Bill of Lading",
+    "rule": "Exact match",
+    "tolerance": "None",
+    "trade_type": "Both",
+    "phase": "Phase 1"
+}
+{
+    "check_number": "16",
+    "check_name": "Destination Port",
+    "category": "SHIPPING DETAILS",
+    "description": "Port of discharge as specified in LC",
+    "checked_against": "LC / DI",
+    "docs_checked": "Bill of Lading",
+    "rule": "Exact match",
+    "tolerance": "None",
+    "trade_type": "Both",
+    "phase": "Phase 1"
+}
+
+  [DOCUMENT REQUIREMENTS]
+{
+    "check_number": "21",
+    "check_name": "Required Documents List",
+    "category": "DOCUMENT REQUIREMENTS",
+    "description": "All documents needed per LC or DI - complete checklist (per UCP 600 Art. 14 for LC trades)",
+    "checked_against": "LC / DI",
+    "docs_checked": "All uploaded documents",
+    "rule": "All document types required by the LC or DI must be present",
+    "tolerance": "None",
+    "trade_type": "Both",
+    "phase": "Phase 1"
+}
+{
+    "check_number": "22",
+    "check_name": "Bill of Lading Status (Clean / On-Board / Freight)",
+    "category": "DOCUMENT REQUIREMENTS",
+    "description": "Clean, on-board, freight status as required by LC",
+    "checked_against": "LC + UCP 600 rules",
+    "docs_checked": "Bill of Lading",
+    "rule": "Must be present and unconditional",
+    "tolerance": "None",
+    "trade_type": "LC",
+    "phase": "Phase 2"
+}
+
+  [REFERENCE NUMBERS]
+{
+    "check_number": "26",
+    "check_name": "H.S. Code",
+    "category": "REFERENCE NUMBERS",
+    "description": "Customs classification code for the commodity",
+    "checked_against": "LC / Contract",
+    "docs_checked": "Commercial Invoice / Certificate of Origin",
+    "rule": "H.S. code present and matches LC specification",
+    "tolerance": "None",
+    "trade_type": "Both",
+    "phase": "Phase 1"
+}
+{
+    "check_number": "27",
+    "check_name": "Import Permit Number",
+    "category": "REFERENCE NUMBERS",
+    "description": "Destination country import permit reference",
+    "checked_against": "LC",
+    "docs_checked": "Phytosanitary Certificate / Commercial Invoice",
+    "rule": "Import permit number present and matches",
+    "tolerance": "None",
+    "trade_type": "Both",
+    "phase": "Phase 1"
+}
+
+  [SPECIAL REQUIREMENTS]
+{
+    "check_number": "30",
+    "check_name": "Legalization Requirements",
+    "category": "SPECIAL REQUIREMENTS",
+    "description": "Embassy/consulate legalization of documents",
+    "checked_against": "LC",
+    "docs_checked": "Certificate of Origin / Invoice",
+    "rule": "Valid embassy or consulate legalization stamp must be present and legible",
+    "tolerance": "Must be present",
+    "trade_type": "LC",
+    "phase": "Phase 1"
+}
+{
+    "check_number": "30a",
+    "check_name": "Legalization Date Sequence",
+    "category": "SPECIAL REQUIREMENTS",
+    "description": "Document date < legalization date < shipment date",
+    "checked_against": "LC",
+    "docs_checked": "Certificate of Origin / Invoice",
+    "rule": "Correct chronological order",
+    "tolerance": "None",
+    "trade_type": "LC",
+    "phase": "Phase 1"
+}
+
+  [COMPLIANCE STATEMENTS]
+{
+    "check_number": "34",
+    "check_name": "Origin Certification Text",
+    "category": "COMPLIANCE STATEMENTS",
+    "description": "Exact wording required for origin certification on COO",
+    "checked_against": "LC",
+    "docs_checked": "Certificate of Origin",
+    "rule": "Required origin statement present with exact or equivalent wording",
+    "tolerance": "10% wording variance (equivalent meaning accepted)",
+    "trade_type": "Both",
+    "phase": "Phase 1"
+}
+{
+    "check_number": "35",
+    "check_name": "Phytosanitary Text",
+    "category": "COMPLIANCE STATEMENTS",
+    "description": "Required phytosanitary statements in LC",
+    "checked_against": "LC / DI",
+    "docs_checked": "Phytosanitary Certificate",
+    "rule": "90% meaning-similarity threshold for auto-pass",
+    "tolerance": "10% wording variance (equivalent meaning accepted)",
+    "trade_type": "Both",
+    "phase": "Phase 1"
+}
+
+  [BANKING DETAILS]
+{
+    "check_number": "39",
+    "check_name": "Issuing Bank",
+    "category": "BANKING DETAILS",
+    "description": "Bank that issued the LC",
+    "checked_against": "LC",
+    "docs_checked": "All documents",
+    "rule": "Issuing bank name and SWIFT/BIC code extracted and validated for format compliance",
+    "tolerance": "N/A",
+    "trade_type": "LC",
+    "phase": "Phase 1"
+}
+{
+    "check_number": "40",
+    "check_name": "Advising/Confirming Bank",
+    "category": "BANKING DETAILS",
+    "description": "Bank advising or confirming the LC if applicable",
+    "checked_against": "LC",
+    "docs_checked": "All documents",
+    "rule": "Advising/confirming bank details extracted and validated from LC",
+    "tolerance": "N/A",
+    "trade_type": "LC",
+    "phase": "Phase 1"
+}
+
+  [CROSS-DOCUMENT VALIDATION]
+{
+    "check_number": "46",
+    "check_name": "On-Face Document Compliance (Art. 14)",
+    "category": "CROSS-DOCUMENT VALIDATION",
+    "description": "Documents must appear to comply on their face - surface-level check",
+    "checked_against": "LC + UCP 600 rules",
+    "docs_checked": "All presented documents",
+    "rule": "Documents must appear compliant on their face",
+    "tolerance": "N/A",
+    "trade_type": "LC",
+    "phase": "Phase 2"
+}
+{
+    "check_number": "46a",
+    "check_name": "Data Consistency Across Documents (Art. 14)",
+    "category": "CROSS-DOCUMENT VALIDATION",
+    "description": "Data in different docs need not be identical but must not conflict",
+    "checked_against": "LC + UCP 600 rules",
+    "docs_checked": "All presented documents",
+    "rule": "Data need not be identical but must not conflict",
+    "tolerance": "Minor inconsistencies OK if not conflicting",
+    "trade_type": "LC",
+    "phase": "Phase 2"
+}
+
+  [VERSION COMPARISON]
+{
+    "check_number": "49a",
+    "check_name": "Stamp Issuer Match",
+    "category": "VERSION COMPARISON",
+    "description": "Stamp text/issuer name must match expected issuing body",
+    "checked_against": "LC / DI",
+    "docs_checked": "Final document",
+    "rule": "Issuer name matches expected",
+    "tolerance": "Flexible match acceptable",
+    "trade_type": "Both",
+    "phase": "Phase 2"
+}
+{
+    "check_number": "75",
+    "check_name": "Party Name Re-validation (Final vs LC/DI)",
+    "category": "VERSION COMPARISON",
+    "description": "Re-validate party names in final documents against LC/DI source - ensures no name changes between draft approval and final issuance",
+    "checked_against": "LC / DI",
+    "docs_checked": "Final document",
+    "rule": "Party names in final must match LC/DI exactly (LC) or within flexible match threshold (Cash)",
+    "tolerance": "Zero (LC) / 5-10% (Cash)",
+    "trade_type": "Both",
+    "phase": "Phase 1"
+}
+
+  [COUNTRY-SPECIFIC TEMPORAL]
+{
+    "check_number": "52",
+    "check_name": "Country-Specific Validity Window",
+    "category": "COUNTRY-SPECIFIC TEMPORAL",
+    "description": "Verify that supporting documents (quality, weight, fumigation, phytosanitary, and health certificates) are issued within the destination country's required validity period before shipment",
+    "checked_against": "LC / DI / Contract",
+    "docs_checked": "Quality / Weight / Fumigation / Phyto / Health Cert",
+    "rule": "Cert date within country x doc type max days before shipment",
+    "tolerance": "Per country rules matrix",
+    "trade_type": "Both",
+    "phase": "Phase 1"
+}
+{
+    "check_number": "53",
+    "check_name": "Legalization Timing Chain",
+    "category": "COUNTRY-SPECIFIC TEMPORAL",
+    "description": "For destinations requiring legalization, verify each step in the legalization sequence (document issuance, then legalization, then shipment) falls within country-specific time limits",
+    "checked_against": "LC / DI",
+    "docs_checked": "Certificate of Origin / Invoice / Phyto Cert",
+    "rule": "Each gap in chain within country-specific maximum",
+    "tolerance": "Per country rules",
+    "trade_type": "LC",
+    "phase": "Phase 2"
+}
+
+  [SUPPORTING DOC VERIFICATION]
+{
+    "check_number": "56",
+    "check_name": "Phytosanitary - Treatment Declaration",
+    "category": "SUPPORTING DOC VERIFICATION",
+    "description": "Treatment type on phyto cert must match LC/DI requirements and destination country rules",
+    "checked_against": "LC / DI",
+    "docs_checked": "Phytosanitary Certificate",
+    "rule": "Treatment type matches both LC/DI specification and destination requirements",
+    "tolerance": "None",
+    "trade_type": "Both",
+    "phase": "Phase 2"
+}
+{
+    "check_number": "57",
+    "check_name": "Phytosanitary - Import Permit Cross-Check",
+    "category": "SUPPORTING DOC VERIFICATION",
+    "description": "Import permit number on phyto cert must be consistent with permit number on invoice and LC",
+    "checked_against": "LC / DI",
+    "docs_checked": "Phytosanitary Certificate / Commercial Invoice",
+    "rule": "Import permit number identical on phyto cert and invoice",
+    "tolerance": "None",
+    "trade_type": "Both",
+    "phase": "Phase 2"
+}
+
+  [LC AMENDMENT]
+{
+    "check_number": "71",
+    "check_name": "MT701 Amendment Detection",
+    "category": "LC AMENDMENT",
+    "description": "Detect if an LC amendment (MT701) has been received and flag all subsequent documents for re-verification",
+    "checked_against": "LC (MT701 Amendment)",
+    "docs_checked": "All documents",
+    "rule": "Amendment detected triggers full re-verification against amended LC terms",
+    "tolerance": "None",
+    "trade_type": "LC",
+    "phase": "Phase 2"
+}
+{
+    "check_number": "72",
+    "check_name": "Amendment Reflected in Documents",
+    "category": "LC AMENDMENT",
+    "description": "All documents presented after LC amendment must reflect amended terms not original terms",
+    "checked_against": "LC (MT701 Amendment)",
+    "docs_checked": "All documents",
+    "rule": "Documents must match amended LC values not original values",
+    "tolerance": "None",
+    "trade_type": "LC",
+    "phase": "Phase 2"
+}
