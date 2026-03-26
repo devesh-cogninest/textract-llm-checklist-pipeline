@@ -40,8 +40,11 @@ Isse baar baar OCR run karne ki zarurat nahi padti aur cost/time save hota hai.
 Cell 9: Checklist Generation
 Har PDF ke liye pehle document type detect kiya (LLM use karke).
 Phir filter logic apply karke relevant checks nikale (Python logic se).
+Is pipeline me pehle document type ke basis pe checks filter hote hain (jaise LC ke liye 82 checks).
+Uske baad un checks ko unki category ke according group kiya h
+Har check ke paas ek category hoti hai (jaise BASIC TRADE INFO, SHIPPING DETAILS, etc.), usi basis pe grouping hoti hai.
 Uske baad JSON structure generate kiya jisme document type, total checks aur saare checks included hain.
-Is step me koi verification ya field extraction nahi ho raha, sirf checklist generate ho rahi hai.
+ase checklist genrate keri h 
 
 Cell 10–12: Output and Save
 Checklist ko notebook me readable format me print kiya.
