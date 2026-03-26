@@ -1,6 +1,6 @@
 # textract-llm-checklist-pipeline
 
-Big Picture
+Problem :
 Mera goal hai ki trade finance documents (LC, B/L, etc.) ke liye sirf relevant checks run karu instead of all 114 checks.
 Iske liye pehle document type detect karta hoon, phir Excel se sirf us type ke applicable checks filter karta hoon, aur final JSON checklist generate karta hoon.
 
