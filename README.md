@@ -57,8 +57,8 @@ Final JSON checklist generate kiya
 JSON file save kar di
 
 Design Decisions
-Textract use kiya kyunki ye scanned aur complex documents pe better kaam karta hai
-Document type detection ke liye LLM use kiya kyunki headers vary karte hain
+Textract use kiya kyunki ye scanned aur complex documents pe better kaam karta hai.
+Document type detection ke liye LLM use kiya kyunki headers vary karte hain.
 Checklist filtering ke liye Python logic use kiya kyunki ye fast aur deterministic hai
-Col E use kiya filtering ke liye kyunki ye correct mapping deta hai document type ke saath
-JSON output use kiya kyunki ye machine-readable hai aur downstream systems me easily use ho sakta hai
+Col E use kiya filtering ke liye kyunki ye correct mapping deta hai document type ke saath.
+JSON output use kiya kyunki ye machine-readable hai aur downstream systems me easily use ho sakta hai..
